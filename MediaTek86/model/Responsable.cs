@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 namespace MediaTek86.model
 {
     /// <summary>
-    /// Classe métier liée à la table Absence
+    /// Classe métier liée à la table Responsable
     /// </summary>
-    public class Absence
+    public class Responsable
     {
     }
 }

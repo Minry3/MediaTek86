@@ -4,12 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MediaTek86.model
+namespace MediaTek86.controller
 {
     /// <summary>
-    /// Classe métier liée à la table Absence
+    /// Contrôleur de FrmConnexion
     /// </summary>
-    public class Absence
+    public class FrmConnexionController
     {
     }
 }

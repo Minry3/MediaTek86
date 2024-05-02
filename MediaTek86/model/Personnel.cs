@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace MediaTek86.model
 {
+    /// <summary>
+    /// Classe métier liée à la table Personnel
+    /// </summary>
     public class Personnel
     {
     }

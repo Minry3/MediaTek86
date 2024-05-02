@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace MediaTek86.controller
 {
+    /// <summary>
+    /// Contrôleur de FrmMediaTek86
+    /// </summary>
     public class FrmMediaTek86Controller
     {
     }

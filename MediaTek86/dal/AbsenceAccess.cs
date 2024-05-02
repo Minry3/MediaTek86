@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace MediaTek86.dal
 {
+    /// <summary>
+    /// Classe permettant de gérer les demandes concernant les absences
+    /// </summary>
     public class AbsenceAccess
     {
     }

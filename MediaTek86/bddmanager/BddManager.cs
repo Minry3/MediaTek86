@@ -7,7 +7,7 @@ namespace MediaTek86.bddmanager
     /// <summary>
     /// Singleton : connexion à la base de données et exécution des requêtes
     /// </summary>
-    class BddManager
+    public class BddManager
     {
         /// <summary>
         /// instance unique de la classe
