@@ -89,6 +89,7 @@ namespace MediaTek86
             this.btnModifPersonnel.TabIndex = 3;
             this.btnModifPersonnel.Text = "Modifier";
             this.btnModifPersonnel.UseVisualStyleBackColor = true;
+            this.btnModifPersonnel.Click += new System.EventHandler(this.btnModifPersonnel_Click);
             // 
             // btnSuppPersonnel
             // 
@@ -155,6 +156,7 @@ namespace MediaTek86
             this.btnEnregistrerPersonnel.TabIndex = 4;
             this.btnEnregistrerPersonnel.Text = "Enregistrer";
             this.btnEnregistrerPersonnel.UseVisualStyleBackColor = true;
+            this.btnEnregistrerPersonnel.Click += new System.EventHandler(this.btnEnregistrerPersonnel_Click);
             // 
             // comboService
             // 

@@ -31,6 +31,10 @@ namespace MediaTek86
         /// Controleur de la fenêtre
         /// </summary>
         private FrmMediaTek86Controller controller;
+        /// <summary>
+        /// Booléan pour savoir si une modification est demandée
+        /// </summary>
+        private Boolean modifPersonnel = false;
 
         /// <summary>
         /// construction des composants graphiques et appel des autres initialisations
@@ -51,6 +55,7 @@ namespace MediaTek86
             RemplirListePersonnels();
             RemplirListeServices();
             RemplirListeMotifs();
+            EnCoursModifPersonnel(false);
         }
 
         /// <summary>
@@ -95,6 +100,78 @@ namespace MediaTek86
                 dgvAbsences.DataSource = bdgAbsences;
                 dgvAbsences.Columns["Personnel"].Visible = false;
                 dgvAbsences.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            }
+        }
+
+        /// <summary>
+        /// Demande d'enregistrement de l'ajout ou de la modif d'un personnel
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnEnregistrerPersonnel_Click(object sender, EventArgs e)
+        {
+            if (!txtNom.Text.Equals("") && !txtPrenom.Text.Equals("") && !txtTel.Text.Equals("") && !txtMail.Text.Equals("") && comboService.SelectedIndex != -1)
+            {
+                Service service = (Service)bdgServices.List[bdgServices.Position];
+                if (modifPersonnel)
+                {
+                    Personnel personnel = (Personnel)bdgPersonnels.List[bdgPersonnels.Position];
+                    personnel.Nom = txtNom.Text;
+                    personnel.Prenom = txtPrenom.Text;
+                    personnel.Tel = txtTel.Text;
+                    personnel.Mail = txtMail.Text;
+                    personnel.Service = service;
+                    controller.UpdatePersonnel(personnel);
+                }
+                else
+                {
+                    Personnel personnel = new Personnel(0, txtNom.Text, txtPrenom.Text, txtTel.Text, txtMail.Text, service);
+                    controller.AddPersonnel(personnel);
+                }
+                RemplirListePersonnels();
+                EnCoursModifPersonnel(false);
+            }
+        }
+
+        /// <summary>
+        /// Demande de modification d'un personnel
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnModifPersonnel_Click(object sender, EventArgs e)
+        {
+            if(dgvLesPersonnels.SelectedRows.Count > 0)
+            {
+                modifPersonnel = true;
+                Personnel personnel = (Personnel)bdgPersonnels.List[bdgPersonnels.Position];
+                txtNom.Text = personnel.Nom;
+                txtPrenom.Text = personnel.Prenom;
+                txtTel.Text = personnel.Tel;
+                txtMail.Text = personnel.Mail;
+                comboService.SelectedIndex = comboService.FindStringExact(personnel.Service.Nom);
+            }
+        }
+
+
+        /// <summary>
+        /// Modification de l'affichage selon le statut de la demande (en cours de modif ou ajout d'un personnel)
+        /// </summary>
+        /// <param name="enCours"></param>
+        private void EnCoursModifPersonnel(Boolean enCours)
+        {
+            modifPersonnel = enCours;
+            grpBoxLesPersonnels.Enabled = !enCours;
+            if (enCours)
+            {
+                grpBoxLesPersonnels.Text = "modifier un personnel";
+            }
+            else
+            {
+                grpBoxLesPersonnels.Text = "ajouter un personnel";
+                txtNom.Text = "";
+                txtPrenom.Text = "";
+                txtTel.Text = "";
+                txtMail.Text = "";
             }
         }
     }
