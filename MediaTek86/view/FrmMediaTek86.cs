@@ -116,12 +116,15 @@ namespace MediaTek86
                 if (modifPersonnel)
                 {
                     Personnel personnel = (Personnel)bdgPersonnels.List[bdgPersonnels.Position];
-                    personnel.Nom = txtNom.Text;
-                    personnel.Prenom = txtPrenom.Text;
-                    personnel.Tel = txtTel.Text;
-                    personnel.Mail = txtMail.Text;
-                    personnel.Service = service;
-                    controller.UpdatePersonnel(personnel);
+                    if (MessageBox.Show("Voulez-vous vraiment modifier " + personnel.Nom + " " + personnel.Prenom + " ?", "Confirmation de modification", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                    {
+                        personnel.Nom = txtNom.Text;
+                        personnel.Prenom = txtPrenom.Text;
+                        personnel.Tel = txtTel.Text;
+                        personnel.Mail = txtMail.Text;
+                        personnel.Service = service;
+                        controller.UpdatePersonnel(personnel);
+                    }
                 }
                 else
                 {
@@ -130,6 +133,10 @@ namespace MediaTek86
                 }
                 RemplirListePersonnels();
                 EnCoursModifPersonnel(false);
+            }
+            else
+            {
+                MessageBox.Show("Tous les champs doivent être remplis.", "Information");
             }
         }
 
@@ -143,6 +150,7 @@ namespace MediaTek86
             if(dgvLesPersonnels.SelectedRows.Count > 0)
             {
                 modifPersonnel = true;
+                EnCoursModifPersonnel(true);
                 Personnel personnel = (Personnel)bdgPersonnels.List[bdgPersonnels.Position];
                 txtNom.Text = personnel.Nom;
                 txtPrenom.Text = personnel.Prenom;
@@ -163,16 +171,50 @@ namespace MediaTek86
             grpBoxLesPersonnels.Enabled = !enCours;
             if (enCours)
             {
-                grpBoxLesPersonnels.Text = "modifier un personnel";
+                grpBoxAjoutPersonnel.Text = "modifier un personnel";
             }
             else
             {
-                grpBoxLesPersonnels.Text = "ajouter un personnel";
+                grpBoxAjoutPersonnel.Text = "ajouter un personnel";
                 txtNom.Text = "";
                 txtPrenom.Text = "";
                 txtTel.Text = "";
                 txtMail.Text = "";
             }
         }
+
+        /// <summary>
+        /// Demande de suppression d'un personnel
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnSuppPersonnel_Click(object sender, EventArgs e)
+        {
+            if (dgvLesPersonnels.SelectedRows.Count > 0)
+            {
+                Personnel personnel = (Personnel)bdgPersonnels.List[bdgPersonnels.Position];
+                if (MessageBox.Show("Voulez-vous vraiment supprimer " + personnel.Nom + " " + personnel.Prenom + " ?", "Confirmation de suppression", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    controller.DelPersonnel(personnel);
+                    RemplirListePersonnels();
+                }
+            }
+        }
+        
+        /// <summary>
+        /// Annuler la demande d'ajout ou de modif d'un personnel
+        /// Vide les zones de sasie
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnAnnulerPersonnel_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Voulez-vous vraiment annuler ?", "Confirmation", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                EnCoursModifPersonnel(false);
+            }
+        }
+
+
     }
 }

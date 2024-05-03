@@ -92,5 +92,14 @@ namespace MediaTek86.controller
         {
             personnelAccess.UpdatePersonnel(personnel);
         }
+
+        /// <summary>
+        /// Demande de suppression d'un personnel
+        /// </summary>
+        /// <param name="personnel">objet personnel à supprimer</param>
+        public void DelPersonnel(Personnel personnel)
+        {
+            personnelAccess.DelPersonnel(personnel);
+        }
     }
 }

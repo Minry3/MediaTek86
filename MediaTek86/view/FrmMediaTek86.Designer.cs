@@ -99,6 +99,7 @@ namespace MediaTek86
             this.btnSuppPersonnel.TabIndex = 2;
             this.btnSuppPersonnel.Text = "Supprimer";
             this.btnSuppPersonnel.UseVisualStyleBackColor = true;
+            this.btnSuppPersonnel.Click += new System.EventHandler(this.btnSuppPersonnel_Click);
             // 
             // btnGererAbsences
             // 
@@ -147,6 +148,7 @@ namespace MediaTek86
             this.btnAnnulerPersonnel.TabIndex = 10;
             this.btnAnnulerPersonnel.Text = "Annuler";
             this.btnAnnulerPersonnel.UseVisualStyleBackColor = true;
+            this.btnAnnulerPersonnel.Click += new System.EventHandler(this.btnAnnulerPersonnel_Click);
             // 
             // btnEnregistrerPersonnel
             // 
