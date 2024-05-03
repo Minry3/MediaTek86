@@ -30,41 +30,41 @@ namespace MediaTek86
         private void InitializeComponent()
         {
             this.grpBoxLesPersonnels = new System.Windows.Forms.GroupBox();
-            this.grpBoxAjoutPersonnel = new System.Windows.Forms.GroupBox();
-            this.grpBoxAbsences = new System.Windows.Forms.GroupBox();
-            this.dgvLesPersonnels = new System.Windows.Forms.DataGridView();
-            this.btnGererAbsences = new System.Windows.Forms.Button();
-            this.btnSuppPersonnel = new System.Windows.Forms.Button();
             this.btnModifPersonnel = new System.Windows.Forms.Button();
-            this.lblNom = new System.Windows.Forms.Label();
-            this.lblPrenom = new System.Windows.Forms.Label();
-            this.lblTel = new System.Windows.Forms.Label();
-            this.lblMail = new System.Windows.Forms.Label();
-            this.lblService = new System.Windows.Forms.Label();
-            this.txtNom = new System.Windows.Forms.TextBox();
-            this.txtPrenom = new System.Windows.Forms.TextBox();
-            this.txtTel = new System.Windows.Forms.TextBox();
-            this.txtMail = new System.Windows.Forms.TextBox();
-            this.comboService = new System.Windows.Forms.ComboBox();
-            this.btnEnregistrerPersonnel = new System.Windows.Forms.Button();
+            this.btnSuppPersonnel = new System.Windows.Forms.Button();
+            this.btnGererAbsences = new System.Windows.Forms.Button();
+            this.dgvLesPersonnels = new System.Windows.Forms.DataGridView();
+            this.grpBoxAjoutPersonnel = new System.Windows.Forms.GroupBox();
             this.btnAnnulerPersonnel = new System.Windows.Forms.Button();
-            this.btnAnnulerAbsence = new System.Windows.Forms.Button();
-            this.btnEnregistrerAbsence = new System.Windows.Forms.Button();
-            this.btnSupprimerAbsence = new System.Windows.Forms.Button();
-            this.btnModifierAbsence = new System.Windows.Forms.Button();
-            this.dgvAbsences = new System.Windows.Forms.DataGridView();
-            this.lblPersonnel = new System.Windows.Forms.Label();
-            this.lblDateDebut = new System.Windows.Forms.Label();
-            this.lblDateFin = new System.Windows.Forms.Label();
-            this.lblMotif = new System.Windows.Forms.Label();
-            this.dateDebut = new System.Windows.Forms.DateTimePicker();
-            this.dateFin = new System.Windows.Forms.DateTimePicker();
-            this.comboMotif = new System.Windows.Forms.ComboBox();
+            this.btnEnregistrerPersonnel = new System.Windows.Forms.Button();
+            this.comboService = new System.Windows.Forms.ComboBox();
+            this.txtMail = new System.Windows.Forms.TextBox();
+            this.txtTel = new System.Windows.Forms.TextBox();
+            this.txtPrenom = new System.Windows.Forms.TextBox();
+            this.txtNom = new System.Windows.Forms.TextBox();
+            this.lblService = new System.Windows.Forms.Label();
+            this.lblMail = new System.Windows.Forms.Label();
+            this.lblTel = new System.Windows.Forms.Label();
+            this.lblPrenom = new System.Windows.Forms.Label();
+            this.lblNom = new System.Windows.Forms.Label();
+            this.grpBoxAbsences = new System.Windows.Forms.GroupBox();
             this.lblNomPersonnel = new System.Windows.Forms.Label();
+            this.comboMotif = new System.Windows.Forms.ComboBox();
+            this.dateFin = new System.Windows.Forms.DateTimePicker();
+            this.dateDebut = new System.Windows.Forms.DateTimePicker();
+            this.lblMotif = new System.Windows.Forms.Label();
+            this.lblDateFin = new System.Windows.Forms.Label();
+            this.lblDateDebut = new System.Windows.Forms.Label();
+            this.lblPersonnel = new System.Windows.Forms.Label();
+            this.dgvAbsences = new System.Windows.Forms.DataGridView();
+            this.btnModifierAbsence = new System.Windows.Forms.Button();
+            this.btnSupprimerAbsence = new System.Windows.Forms.Button();
+            this.btnEnregistrerAbsence = new System.Windows.Forms.Button();
+            this.btnAnnulerAbsence = new System.Windows.Forms.Button();
             this.grpBoxLesPersonnels.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLesPersonnels)).BeginInit();
             this.grpBoxAjoutPersonnel.SuspendLayout();
             this.grpBoxAbsences.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvLesPersonnels)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAbsences)).BeginInit();
             this.SuspendLayout();
             // 
@@ -80,6 +80,42 @@ namespace MediaTek86
             this.grpBoxLesPersonnels.TabIndex = 0;
             this.grpBoxLesPersonnels.TabStop = false;
             this.grpBoxLesPersonnels.Text = "Les Personnels";
+            // 
+            // btnModifPersonnel
+            // 
+            this.btnModifPersonnel.Location = new System.Drawing.Point(540, 216);
+            this.btnModifPersonnel.Name = "btnModifPersonnel";
+            this.btnModifPersonnel.Size = new System.Drawing.Size(112, 23);
+            this.btnModifPersonnel.TabIndex = 3;
+            this.btnModifPersonnel.Text = "Modifier";
+            this.btnModifPersonnel.UseVisualStyleBackColor = true;
+            // 
+            // btnSuppPersonnel
+            // 
+            this.btnSuppPersonnel.Location = new System.Drawing.Point(658, 216);
+            this.btnSuppPersonnel.Name = "btnSuppPersonnel";
+            this.btnSuppPersonnel.Size = new System.Drawing.Size(112, 23);
+            this.btnSuppPersonnel.TabIndex = 2;
+            this.btnSuppPersonnel.Text = "Supprimer";
+            this.btnSuppPersonnel.UseVisualStyleBackColor = true;
+            // 
+            // btnGererAbsences
+            // 
+            this.btnGererAbsences.Location = new System.Drawing.Point(6, 216);
+            this.btnGererAbsences.Name = "btnGererAbsences";
+            this.btnGererAbsences.Size = new System.Drawing.Size(112, 23);
+            this.btnGererAbsences.TabIndex = 1;
+            this.btnGererAbsences.Text = "Gérer les absences";
+            this.btnGererAbsences.UseVisualStyleBackColor = true;
+            this.btnGererAbsences.Click += new System.EventHandler(this.btnGererAbsences_Click);
+            // 
+            // dgvLesPersonnels
+            // 
+            this.dgvLesPersonnels.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvLesPersonnels.Location = new System.Drawing.Point(6, 19);
+            this.dgvLesPersonnels.Name = "dgvLesPersonnels";
+            this.dgvLesPersonnels.Size = new System.Drawing.Size(764, 191);
+            this.dgvLesPersonnels.TabIndex = 0;
             // 
             // grpBoxAjoutPersonnel
             // 
@@ -97,10 +133,109 @@ namespace MediaTek86
             this.grpBoxAjoutPersonnel.Controls.Add(this.lblNom);
             this.grpBoxAjoutPersonnel.Location = new System.Drawing.Point(12, 267);
             this.grpBoxAjoutPersonnel.Name = "grpBoxAjoutPersonnel";
-            this.grpBoxAjoutPersonnel.Size = new System.Drawing.Size(311, 242);
+            this.grpBoxAjoutPersonnel.Size = new System.Drawing.Size(247, 242);
             this.grpBoxAjoutPersonnel.TabIndex = 1;
             this.grpBoxAjoutPersonnel.TabStop = false;
             this.grpBoxAjoutPersonnel.Text = "Ajouter un personnel";
+            // 
+            // btnAnnulerPersonnel
+            // 
+            this.btnAnnulerPersonnel.Location = new System.Drawing.Point(85, 213);
+            this.btnAnnulerPersonnel.Name = "btnAnnulerPersonnel";
+            this.btnAnnulerPersonnel.Size = new System.Drawing.Size(73, 23);
+            this.btnAnnulerPersonnel.TabIndex = 10;
+            this.btnAnnulerPersonnel.Text = "Annuler";
+            this.btnAnnulerPersonnel.UseVisualStyleBackColor = true;
+            // 
+            // btnEnregistrerPersonnel
+            // 
+            this.btnEnregistrerPersonnel.Location = new System.Drawing.Point(6, 213);
+            this.btnEnregistrerPersonnel.Name = "btnEnregistrerPersonnel";
+            this.btnEnregistrerPersonnel.Size = new System.Drawing.Size(73, 23);
+            this.btnEnregistrerPersonnel.TabIndex = 4;
+            this.btnEnregistrerPersonnel.Text = "Enregistrer";
+            this.btnEnregistrerPersonnel.UseVisualStyleBackColor = true;
+            // 
+            // comboService
+            // 
+            this.comboService.FormattingEnabled = true;
+            this.comboService.Location = new System.Drawing.Point(88, 163);
+            this.comboService.Name = "comboService";
+            this.comboService.Size = new System.Drawing.Size(139, 21);
+            this.comboService.TabIndex = 9;
+            // 
+            // txtMail
+            // 
+            this.txtMail.Location = new System.Drawing.Point(88, 129);
+            this.txtMail.Name = "txtMail";
+            this.txtMail.Size = new System.Drawing.Size(139, 20);
+            this.txtMail.TabIndex = 8;
+            // 
+            // txtTel
+            // 
+            this.txtTel.Location = new System.Drawing.Point(88, 98);
+            this.txtTel.Name = "txtTel";
+            this.txtTel.Size = new System.Drawing.Size(139, 20);
+            this.txtTel.TabIndex = 7;
+            // 
+            // txtPrenom
+            // 
+            this.txtPrenom.Location = new System.Drawing.Point(88, 66);
+            this.txtPrenom.Name = "txtPrenom";
+            this.txtPrenom.Size = new System.Drawing.Size(139, 20);
+            this.txtPrenom.TabIndex = 6;
+            // 
+            // txtNom
+            // 
+            this.txtNom.Location = new System.Drawing.Point(88, 30);
+            this.txtNom.Name = "txtNom";
+            this.txtNom.Size = new System.Drawing.Size(139, 20);
+            this.txtNom.TabIndex = 5;
+            // 
+            // lblService
+            // 
+            this.lblService.AutoSize = true;
+            this.lblService.Location = new System.Drawing.Point(20, 166);
+            this.lblService.Name = "lblService";
+            this.lblService.Size = new System.Drawing.Size(43, 13);
+            this.lblService.TabIndex = 4;
+            this.lblService.Text = "Service";
+            // 
+            // lblMail
+            // 
+            this.lblMail.AutoSize = true;
+            this.lblMail.Location = new System.Drawing.Point(20, 132);
+            this.lblMail.Name = "lblMail";
+            this.lblMail.Size = new System.Drawing.Size(26, 13);
+            this.lblMail.TabIndex = 3;
+            this.lblMail.Text = "Mail";
+            // 
+            // lblTel
+            // 
+            this.lblTel.AutoSize = true;
+            this.lblTel.Location = new System.Drawing.Point(20, 101);
+            this.lblTel.Name = "lblTel";
+            this.lblTel.Size = new System.Drawing.Size(22, 13);
+            this.lblTel.TabIndex = 2;
+            this.lblTel.Text = "Tel";
+            // 
+            // lblPrenom
+            // 
+            this.lblPrenom.AutoSize = true;
+            this.lblPrenom.Location = new System.Drawing.Point(20, 69);
+            this.lblPrenom.Name = "lblPrenom";
+            this.lblPrenom.Size = new System.Drawing.Size(43, 13);
+            this.lblPrenom.TabIndex = 1;
+            this.lblPrenom.Text = "Prénom";
+            // 
+            // lblNom
+            // 
+            this.lblNom.AutoSize = true;
+            this.lblNom.Location = new System.Drawing.Point(20, 33);
+            this.lblNom.Name = "lblNom";
+            this.lblNom.Size = new System.Drawing.Size(29, 13);
+            this.lblNom.TabIndex = 0;
+            this.lblNom.Text = "Nom";
             // 
             // grpBoxAbsences
             // 
@@ -117,176 +252,87 @@ namespace MediaTek86
             this.grpBoxAbsences.Controls.Add(this.btnSupprimerAbsence);
             this.grpBoxAbsences.Controls.Add(this.btnEnregistrerAbsence);
             this.grpBoxAbsences.Controls.Add(this.btnAnnulerAbsence);
-            this.grpBoxAbsences.Location = new System.Drawing.Point(329, 267);
+            this.grpBoxAbsences.Location = new System.Drawing.Point(265, 267);
             this.grpBoxAbsences.Name = "grpBoxAbsences";
-            this.grpBoxAbsences.Size = new System.Drawing.Size(459, 242);
+            this.grpBoxAbsences.Size = new System.Drawing.Size(523, 242);
             this.grpBoxAbsences.TabIndex = 2;
             this.grpBoxAbsences.TabStop = false;
             this.grpBoxAbsences.Text = "Absences";
             // 
-            // dgvLesPersonnels
+            // lblNomPersonnel
             // 
-            this.dgvLesPersonnels.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvLesPersonnels.Location = new System.Drawing.Point(6, 19);
-            this.dgvLesPersonnels.Name = "dgvLesPersonnels";
-            this.dgvLesPersonnels.Size = new System.Drawing.Size(764, 191);
-            this.dgvLesPersonnels.TabIndex = 0;
+            this.lblNomPersonnel.AutoSize = true;
+            this.lblNomPersonnel.Location = new System.Drawing.Point(373, 33);
+            this.lblNomPersonnel.Name = "lblNomPersonnel";
+            this.lblNomPersonnel.Size = new System.Drawing.Size(68, 13);
+            this.lblNomPersonnel.TabIndex = 20;
+            this.lblNomPersonnel.Text = "Nom Prénom";
             // 
-            // btnGererAbsences
+            // comboMotif
             // 
-            this.btnGererAbsences.Location = new System.Drawing.Point(6, 216);
-            this.btnGererAbsences.Name = "btnGererAbsences";
-            this.btnGererAbsences.Size = new System.Drawing.Size(112, 23);
-            this.btnGererAbsences.TabIndex = 1;
-            this.btnGererAbsences.Text = "Gérer les absences";
-            this.btnGererAbsences.UseVisualStyleBackColor = true;
-            this.btnGererAbsences.Click += new System.EventHandler(this.button1_Click);
+            this.comboMotif.FormattingEnabled = true;
+            this.comboMotif.Location = new System.Drawing.Point(373, 128);
+            this.comboMotif.Name = "comboMotif";
+            this.comboMotif.Size = new System.Drawing.Size(135, 21);
+            this.comboMotif.TabIndex = 11;
             // 
-            // btnSuppPersonnel
+            // dateFin
             // 
-            this.btnSuppPersonnel.Location = new System.Drawing.Point(658, 216);
-            this.btnSuppPersonnel.Name = "btnSuppPersonnel";
-            this.btnSuppPersonnel.Size = new System.Drawing.Size(112, 23);
-            this.btnSuppPersonnel.TabIndex = 2;
-            this.btnSuppPersonnel.Text = "Supprimer";
-            this.btnSuppPersonnel.UseVisualStyleBackColor = true;
+            this.dateFin.Location = new System.Drawing.Point(373, 98);
+            this.dateFin.Name = "dateFin";
+            this.dateFin.Size = new System.Drawing.Size(135, 20);
+            this.dateFin.TabIndex = 19;
             // 
-            // btnModifPersonnel
+            // dateDebut
             // 
-            this.btnModifPersonnel.Location = new System.Drawing.Point(540, 216);
-            this.btnModifPersonnel.Name = "btnModifPersonnel";
-            this.btnModifPersonnel.Size = new System.Drawing.Size(112, 23);
-            this.btnModifPersonnel.TabIndex = 3;
-            this.btnModifPersonnel.Text = "Modifier";
-            this.btnModifPersonnel.UseVisualStyleBackColor = true;
+            this.dateDebut.Location = new System.Drawing.Point(373, 66);
+            this.dateDebut.Name = "dateDebut";
+            this.dateDebut.Size = new System.Drawing.Size(135, 20);
+            this.dateDebut.TabIndex = 18;
             // 
-            // lblNom
+            // lblMotif
             // 
-            this.lblNom.AutoSize = true;
-            this.lblNom.Location = new System.Drawing.Point(20, 33);
-            this.lblNom.Name = "lblNom";
-            this.lblNom.Size = new System.Drawing.Size(29, 13);
-            this.lblNom.TabIndex = 0;
-            this.lblNom.Text = "Nom";
-            this.lblNom.Click += new System.EventHandler(this.lblNom_Click);
+            this.lblMotif.AutoSize = true;
+            this.lblMotif.Location = new System.Drawing.Point(337, 132);
+            this.lblMotif.Name = "lblMotif";
+            this.lblMotif.Size = new System.Drawing.Size(30, 13);
+            this.lblMotif.TabIndex = 17;
+            this.lblMotif.Text = "Motif";
             // 
-            // lblPrenom
+            // lblDateFin
             // 
-            this.lblPrenom.AutoSize = true;
-            this.lblPrenom.Location = new System.Drawing.Point(20, 69);
-            this.lblPrenom.Name = "lblPrenom";
-            this.lblPrenom.Size = new System.Drawing.Size(43, 13);
-            this.lblPrenom.TabIndex = 1;
-            this.lblPrenom.Text = "Prénom";
+            this.lblDateFin.AutoSize = true;
+            this.lblDateFin.Location = new System.Drawing.Point(308, 101);
+            this.lblDateFin.Name = "lblDateFin";
+            this.lblDateFin.Size = new System.Drawing.Size(59, 13);
+            this.lblDateFin.TabIndex = 16;
+            this.lblDateFin.Text = "Date de fin";
             // 
-            // lblTel
+            // lblDateDebut
             // 
-            this.lblTel.AutoSize = true;
-            this.lblTel.Location = new System.Drawing.Point(20, 101);
-            this.lblTel.Name = "lblTel";
-            this.lblTel.Size = new System.Drawing.Size(22, 13);
-            this.lblTel.TabIndex = 2;
-            this.lblTel.Text = "Tel";
+            this.lblDateDebut.AutoSize = true;
+            this.lblDateDebut.Location = new System.Drawing.Point(292, 69);
+            this.lblDateDebut.Name = "lblDateDebut";
+            this.lblDateDebut.Size = new System.Drawing.Size(75, 13);
+            this.lblDateDebut.TabIndex = 15;
+            this.lblDateDebut.Text = "Date de début";
             // 
-            // lblMail
+            // lblPersonnel
             // 
-            this.lblMail.AutoSize = true;
-            this.lblMail.Location = new System.Drawing.Point(20, 132);
-            this.lblMail.Name = "lblMail";
-            this.lblMail.Size = new System.Drawing.Size(26, 13);
-            this.lblMail.TabIndex = 3;
-            this.lblMail.Text = "Mail";
+            this.lblPersonnel.AutoSize = true;
+            this.lblPersonnel.Location = new System.Drawing.Point(307, 33);
+            this.lblPersonnel.Name = "lblPersonnel";
+            this.lblPersonnel.Size = new System.Drawing.Size(60, 13);
+            this.lblPersonnel.TabIndex = 11;
+            this.lblPersonnel.Text = "Personnel :";
             // 
-            // lblService
+            // dgvAbsences
             // 
-            this.lblService.AutoSize = true;
-            this.lblService.Location = new System.Drawing.Point(20, 166);
-            this.lblService.Name = "lblService";
-            this.lblService.Size = new System.Drawing.Size(43, 13);
-            this.lblService.TabIndex = 4;
-            this.lblService.Text = "Service";
-            // 
-            // txtNom
-            // 
-            this.txtNom.Location = new System.Drawing.Point(88, 30);
-            this.txtNom.Name = "txtNom";
-            this.txtNom.Size = new System.Drawing.Size(191, 20);
-            this.txtNom.TabIndex = 5;
-            // 
-            // txtPrenom
-            // 
-            this.txtPrenom.Location = new System.Drawing.Point(88, 66);
-            this.txtPrenom.Name = "txtPrenom";
-            this.txtPrenom.Size = new System.Drawing.Size(191, 20);
-            this.txtPrenom.TabIndex = 6;
-            // 
-            // txtTel
-            // 
-            this.txtTel.Location = new System.Drawing.Point(88, 98);
-            this.txtTel.Name = "txtTel";
-            this.txtTel.Size = new System.Drawing.Size(191, 20);
-            this.txtTel.TabIndex = 7;
-            // 
-            // txtMail
-            // 
-            this.txtMail.Location = new System.Drawing.Point(88, 129);
-            this.txtMail.Name = "txtMail";
-            this.txtMail.Size = new System.Drawing.Size(191, 20);
-            this.txtMail.TabIndex = 8;
-            // 
-            // comboService
-            // 
-            this.comboService.FormattingEnabled = true;
-            this.comboService.Location = new System.Drawing.Point(88, 163);
-            this.comboService.Name = "comboService";
-            this.comboService.Size = new System.Drawing.Size(191, 21);
-            this.comboService.TabIndex = 9;
-            // 
-            // btnEnregistrerPersonnel
-            // 
-            this.btnEnregistrerPersonnel.Location = new System.Drawing.Point(6, 213);
-            this.btnEnregistrerPersonnel.Name = "btnEnregistrerPersonnel";
-            this.btnEnregistrerPersonnel.Size = new System.Drawing.Size(73, 23);
-            this.btnEnregistrerPersonnel.TabIndex = 4;
-            this.btnEnregistrerPersonnel.Text = "Enregistrer";
-            this.btnEnregistrerPersonnel.UseVisualStyleBackColor = true;
-            // 
-            // btnAnnulerPersonnel
-            // 
-            this.btnAnnulerPersonnel.Location = new System.Drawing.Point(85, 213);
-            this.btnAnnulerPersonnel.Name = "btnAnnulerPersonnel";
-            this.btnAnnulerPersonnel.Size = new System.Drawing.Size(73, 23);
-            this.btnAnnulerPersonnel.TabIndex = 10;
-            this.btnAnnulerPersonnel.Text = "Annuler";
-            this.btnAnnulerPersonnel.UseVisualStyleBackColor = true;
-            this.btnAnnulerPersonnel.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // btnAnnulerAbsence
-            // 
-            this.btnAnnulerAbsence.Location = new System.Drawing.Point(380, 213);
-            this.btnAnnulerAbsence.Name = "btnAnnulerAbsence";
-            this.btnAnnulerAbsence.Size = new System.Drawing.Size(73, 23);
-            this.btnAnnulerAbsence.TabIndex = 11;
-            this.btnAnnulerAbsence.Text = "Annuler";
-            this.btnAnnulerAbsence.UseVisualStyleBackColor = true;
-            // 
-            // btnEnregistrerAbsence
-            // 
-            this.btnEnregistrerAbsence.Location = new System.Drawing.Point(301, 213);
-            this.btnEnregistrerAbsence.Name = "btnEnregistrerAbsence";
-            this.btnEnregistrerAbsence.Size = new System.Drawing.Size(73, 23);
-            this.btnEnregistrerAbsence.TabIndex = 11;
-            this.btnEnregistrerAbsence.Text = "Enregistrer";
-            this.btnEnregistrerAbsence.UseVisualStyleBackColor = true;
-            // 
-            // btnSupprimerAbsence
-            // 
-            this.btnSupprimerAbsence.Location = new System.Drawing.Point(6, 213);
-            this.btnSupprimerAbsence.Name = "btnSupprimerAbsence";
-            this.btnSupprimerAbsence.Size = new System.Drawing.Size(73, 23);
-            this.btnSupprimerAbsence.TabIndex = 12;
-            this.btnSupprimerAbsence.Text = "Supprimer";
-            this.btnSupprimerAbsence.UseVisualStyleBackColor = true;
+            this.dgvAbsences.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvAbsences.Location = new System.Drawing.Point(6, 19);
+            this.dgvAbsences.Name = "dgvAbsences";
+            this.dgvAbsences.Size = new System.Drawing.Size(280, 188);
+            this.dgvAbsences.TabIndex = 14;
             // 
             // btnModifierAbsence
             // 
@@ -297,80 +343,32 @@ namespace MediaTek86
             this.btnModifierAbsence.Text = "Modifier";
             this.btnModifierAbsence.UseVisualStyleBackColor = true;
             // 
-            // dgvAbsences
+            // btnSupprimerAbsence
             // 
-            this.dgvAbsences.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvAbsences.Location = new System.Drawing.Point(6, 19);
-            this.dgvAbsences.Name = "dgvAbsences";
-            this.dgvAbsences.Size = new System.Drawing.Size(225, 188);
-            this.dgvAbsences.TabIndex = 14;
+            this.btnSupprimerAbsence.Location = new System.Drawing.Point(6, 213);
+            this.btnSupprimerAbsence.Name = "btnSupprimerAbsence";
+            this.btnSupprimerAbsence.Size = new System.Drawing.Size(73, 23);
+            this.btnSupprimerAbsence.TabIndex = 12;
+            this.btnSupprimerAbsence.Text = "Supprimer";
+            this.btnSupprimerAbsence.UseVisualStyleBackColor = true;
             // 
-            // lblPersonnel
+            // btnEnregistrerAbsence
             // 
-            this.lblPersonnel.AutoSize = true;
-            this.lblPersonnel.Location = new System.Drawing.Point(252, 33);
-            this.lblPersonnel.Name = "lblPersonnel";
-            this.lblPersonnel.Size = new System.Drawing.Size(60, 13);
-            this.lblPersonnel.TabIndex = 11;
-            this.lblPersonnel.Text = "Personnel :";
+            this.btnEnregistrerAbsence.Location = new System.Drawing.Point(365, 213);
+            this.btnEnregistrerAbsence.Name = "btnEnregistrerAbsence";
+            this.btnEnregistrerAbsence.Size = new System.Drawing.Size(73, 23);
+            this.btnEnregistrerAbsence.TabIndex = 11;
+            this.btnEnregistrerAbsence.Text = "Enregistrer";
+            this.btnEnregistrerAbsence.UseVisualStyleBackColor = true;
             // 
-            // lblDateDebut
+            // btnAnnulerAbsence
             // 
-            this.lblDateDebut.AutoSize = true;
-            this.lblDateDebut.Location = new System.Drawing.Point(237, 69);
-            this.lblDateDebut.Name = "lblDateDebut";
-            this.lblDateDebut.Size = new System.Drawing.Size(75, 13);
-            this.lblDateDebut.TabIndex = 15;
-            this.lblDateDebut.Text = "Date de début";
-            // 
-            // lblDateFin
-            // 
-            this.lblDateFin.AutoSize = true;
-            this.lblDateFin.Location = new System.Drawing.Point(253, 101);
-            this.lblDateFin.Name = "lblDateFin";
-            this.lblDateFin.Size = new System.Drawing.Size(59, 13);
-            this.lblDateFin.TabIndex = 16;
-            this.lblDateFin.Text = "Date de fin";
-            // 
-            // lblMotif
-            // 
-            this.lblMotif.AutoSize = true;
-            this.lblMotif.Location = new System.Drawing.Point(282, 132);
-            this.lblMotif.Name = "lblMotif";
-            this.lblMotif.Size = new System.Drawing.Size(30, 13);
-            this.lblMotif.TabIndex = 17;
-            this.lblMotif.Text = "Motif";
-            // 
-            // dateDebut
-            // 
-            this.dateDebut.Location = new System.Drawing.Point(318, 66);
-            this.dateDebut.Name = "dateDebut";
-            this.dateDebut.Size = new System.Drawing.Size(135, 20);
-            this.dateDebut.TabIndex = 18;
-            // 
-            // dateFin
-            // 
-            this.dateFin.Location = new System.Drawing.Point(318, 98);
-            this.dateFin.Name = "dateFin";
-            this.dateFin.Size = new System.Drawing.Size(135, 20);
-            this.dateFin.TabIndex = 19;
-            // 
-            // comboMotif
-            // 
-            this.comboMotif.FormattingEnabled = true;
-            this.comboMotif.Location = new System.Drawing.Point(318, 128);
-            this.comboMotif.Name = "comboMotif";
-            this.comboMotif.Size = new System.Drawing.Size(135, 21);
-            this.comboMotif.TabIndex = 11;
-            // 
-            // lblNomPersonnel
-            // 
-            this.lblNomPersonnel.AutoSize = true;
-            this.lblNomPersonnel.Location = new System.Drawing.Point(318, 33);
-            this.lblNomPersonnel.Name = "lblNomPersonnel";
-            this.lblNomPersonnel.Size = new System.Drawing.Size(68, 13);
-            this.lblNomPersonnel.TabIndex = 20;
-            this.lblNomPersonnel.Text = "Nom Prénom";
+            this.btnAnnulerAbsence.Location = new System.Drawing.Point(444, 213);
+            this.btnAnnulerAbsence.Name = "btnAnnulerAbsence";
+            this.btnAnnulerAbsence.Size = new System.Drawing.Size(73, 23);
+            this.btnAnnulerAbsence.TabIndex = 11;
+            this.btnAnnulerAbsence.Text = "Annuler";
+            this.btnAnnulerAbsence.UseVisualStyleBackColor = true;
             // 
             // FrmMediaTek86
             // 
@@ -382,13 +380,12 @@ namespace MediaTek86
             this.Controls.Add(this.grpBoxLesPersonnels);
             this.Name = "FrmMediaTek86";
             this.Text = "MediaTek86";
-            this.Load += new System.EventHandler(this.FrmMediaTek86_Load);
             this.grpBoxLesPersonnels.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLesPersonnels)).EndInit();
             this.grpBoxAjoutPersonnel.ResumeLayout(false);
             this.grpBoxAjoutPersonnel.PerformLayout();
             this.grpBoxAbsences.ResumeLayout(false);
             this.grpBoxAbsences.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvLesPersonnels)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAbsences)).EndInit();
             this.ResumeLayout(false);
 

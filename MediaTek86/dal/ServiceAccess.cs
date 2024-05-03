@@ -5,9 +5,9 @@ using MediaTek86.model;
 namespace MediaTek86.dal
 {
     /// <summary>
-    /// Classe permettant de gérer les demandes concernant les personnels
+    /// Classe permettant de gérer les demandes concernant les services
     /// </summary>
-    public class PersonnelAccess
+    public class ServiceAccess
     {
         /// <summary>
         /// Instance unique de l'accès aux données
@@ -17,23 +17,21 @@ namespace MediaTek86.dal
         /// <summary>
         /// Constructeur pour créer l'accès aux données
         /// </summary>
-        public PersonnelAccess()
+        public ServiceAccess()
         {
             access = Access.GetInstance();
         }
 
         /// <summary>
-        /// Récupère et retourne les personnels
+        /// Récupère et retourne les services
         /// </summary>
-        /// <returns>liste des personnels</returns>
-        public List<Personnel> GetLesPersonnels()
+        /// <returns>liste des services</returns>
+        public List<Service> GetLesServices()
         {
-            List<Personnel> lesPersonnels = new List<Personnel>();
+            List<Service> lesServices = new List<Service>();
             if (access.Manager != null)
             {
-                string req = "select p.idpersonnel as idpersonnel, p.nom as nom, p.prenom as prenom, p.tel as tel, p.mail as mail, s.idservice as idservice, s.nom as service ";
-                req += "from personnel p join service s on (p.idservice = s.idservice) ";
-                req += "order by nom, prenom;";
+                string req = "select * from service order by nom;";
                 try
                 {
                     List<Object[]> records = access.Manager.ReqSelect(req);
@@ -41,10 +39,8 @@ namespace MediaTek86.dal
                     {
                         foreach (Object[] record in records)
                         {
-                            Service service = new Service((int)record[5], (string)record[6]);
-                            Personnel personnel = new Personnel((int)record[0], (string)record[1], (string)record[2],
-                                (string)record[3], (string)record[4], service);
-                            lesPersonnels.Add(personnel);
+                            Service service = new Service((int)record[0], (string)record[1]);
+                            lesServices.Add(service);
                         }
                     }
                 }
@@ -54,7 +50,7 @@ namespace MediaTek86.dal
                     Environment.Exit(0);
                 }
             }
-            return lesPersonnels;
+            return lesServices;
         }
     }
 }
