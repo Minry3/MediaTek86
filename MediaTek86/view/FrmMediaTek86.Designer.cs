@@ -61,6 +61,7 @@ namespace MediaTek86
             this.btnSupprimerAbsence = new System.Windows.Forms.Button();
             this.btnEnregistrerAbsence = new System.Windows.Forms.Button();
             this.btnAnnulerAbsence = new System.Windows.Forms.Button();
+            this.btnRetour = new System.Windows.Forms.Button();
             this.grpBoxLesPersonnels.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLesPersonnels)).BeginInit();
             this.grpBoxAjoutPersonnel.SuspendLayout();
@@ -113,9 +114,15 @@ namespace MediaTek86
             // 
             // dgvLesPersonnels
             // 
+            this.dgvLesPersonnels.AllowUserToResizeColumns = false;
+            this.dgvLesPersonnels.AllowUserToResizeRows = false;
             this.dgvLesPersonnels.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvLesPersonnels.Location = new System.Drawing.Point(6, 19);
+            this.dgvLesPersonnels.MultiSelect = false;
             this.dgvLesPersonnels.Name = "dgvLesPersonnels";
+            this.dgvLesPersonnels.ReadOnly = true;
+            this.dgvLesPersonnels.RowHeadersVisible = false;
+            this.dgvLesPersonnels.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvLesPersonnels.Size = new System.Drawing.Size(764, 191);
             this.dgvLesPersonnels.TabIndex = 0;
             // 
@@ -243,6 +250,7 @@ namespace MediaTek86
             // 
             // grpBoxAbsences
             // 
+            this.grpBoxAbsences.Controls.Add(this.btnRetour);
             this.grpBoxAbsences.Controls.Add(this.lblNomPersonnel);
             this.grpBoxAbsences.Controls.Add(this.comboMotif);
             this.grpBoxAbsences.Controls.Add(this.dateFin);
@@ -279,6 +287,7 @@ namespace MediaTek86
             this.comboMotif.Name = "comboMotif";
             this.comboMotif.Size = new System.Drawing.Size(135, 21);
             this.comboMotif.TabIndex = 11;
+            this.comboMotif.SelectedIndexChanged += new System.EventHandler(this.comboMotif_SelectedIndexChanged);
             // 
             // dateFin
             // 
@@ -286,6 +295,8 @@ namespace MediaTek86
             this.dateFin.Name = "dateFin";
             this.dateFin.Size = new System.Drawing.Size(135, 20);
             this.dateFin.TabIndex = 19;
+            this.dateFin.Value = new System.DateTime(2024, 5, 4, 14, 16, 0, 0);
+            this.dateFin.ValueChanged += new System.EventHandler(this.dateFin_ValueChanged);
             // 
             // dateDebut
             // 
@@ -293,6 +304,7 @@ namespace MediaTek86
             this.dateDebut.Name = "dateDebut";
             this.dateDebut.Size = new System.Drawing.Size(135, 20);
             this.dateDebut.TabIndex = 18;
+            this.dateDebut.ValueChanged += new System.EventHandler(this.dateDebut_ValueChanged);
             // 
             // lblMotif
             // 
@@ -332,29 +344,37 @@ namespace MediaTek86
             // 
             // dgvAbsences
             // 
+            this.dgvAbsences.AllowUserToResizeColumns = false;
+            this.dgvAbsences.AllowUserToResizeRows = false;
             this.dgvAbsences.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvAbsences.Location = new System.Drawing.Point(6, 19);
+            this.dgvAbsences.MultiSelect = false;
             this.dgvAbsences.Name = "dgvAbsences";
+            this.dgvAbsences.ReadOnly = true;
+            this.dgvAbsences.RowHeadersVisible = false;
+            this.dgvAbsences.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvAbsences.Size = new System.Drawing.Size(280, 188);
             this.dgvAbsences.TabIndex = 14;
             // 
             // btnModifierAbsence
             // 
-            this.btnModifierAbsence.Location = new System.Drawing.Point(85, 213);
+            this.btnModifierAbsence.Location = new System.Drawing.Point(213, 213);
             this.btnModifierAbsence.Name = "btnModifierAbsence";
             this.btnModifierAbsence.Size = new System.Drawing.Size(73, 23);
             this.btnModifierAbsence.TabIndex = 13;
             this.btnModifierAbsence.Text = "Modifier";
             this.btnModifierAbsence.UseVisualStyleBackColor = true;
+            this.btnModifierAbsence.Click += new System.EventHandler(this.btnModifierAbsence_Click);
             // 
             // btnSupprimerAbsence
             // 
-            this.btnSupprimerAbsence.Location = new System.Drawing.Point(6, 213);
+            this.btnSupprimerAbsence.Location = new System.Drawing.Point(134, 213);
             this.btnSupprimerAbsence.Name = "btnSupprimerAbsence";
             this.btnSupprimerAbsence.Size = new System.Drawing.Size(73, 23);
             this.btnSupprimerAbsence.TabIndex = 12;
             this.btnSupprimerAbsence.Text = "Supprimer";
             this.btnSupprimerAbsence.UseVisualStyleBackColor = true;
+            this.btnSupprimerAbsence.Click += new System.EventHandler(this.btnSupprimerAbsence_Click);
             // 
             // btnEnregistrerAbsence
             // 
@@ -364,6 +384,7 @@ namespace MediaTek86
             this.btnEnregistrerAbsence.TabIndex = 11;
             this.btnEnregistrerAbsence.Text = "Enregistrer";
             this.btnEnregistrerAbsence.UseVisualStyleBackColor = true;
+            this.btnEnregistrerAbsence.Click += new System.EventHandler(this.btnEnregistrerAbsence_Click);
             // 
             // btnAnnulerAbsence
             // 
@@ -373,6 +394,17 @@ namespace MediaTek86
             this.btnAnnulerAbsence.TabIndex = 11;
             this.btnAnnulerAbsence.Text = "Annuler";
             this.btnAnnulerAbsence.UseVisualStyleBackColor = true;
+            this.btnAnnulerAbsence.Click += new System.EventHandler(this.btnAnnulerAbsence_Click);
+            // 
+            // btnRetour
+            // 
+            this.btnRetour.Location = new System.Drawing.Point(6, 213);
+            this.btnRetour.Name = "btnRetour";
+            this.btnRetour.Size = new System.Drawing.Size(73, 23);
+            this.btnRetour.TabIndex = 21;
+            this.btnRetour.Text = "Retour";
+            this.btnRetour.UseVisualStyleBackColor = true;
+            this.btnRetour.Click += new System.EventHandler(this.btnRetour_Click);
             // 
             // FrmMediaTek86
             // 
@@ -429,6 +461,7 @@ namespace MediaTek86
         private System.Windows.Forms.DataGridView dgvAbsences;
         private System.Windows.Forms.Button btnModifierAbsence;
         private System.Windows.Forms.Button btnSupprimerAbsence;
+        private System.Windows.Forms.Button btnRetour;
     }
 }
 

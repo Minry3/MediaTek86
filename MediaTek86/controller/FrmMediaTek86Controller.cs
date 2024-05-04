@@ -1,7 +1,7 @@
 ﻿using MediaTek86.dal;
 using MediaTek86.model;
 using System.Collections.Generic;
-
+using System;
 
 namespace MediaTek86.controller
 {
@@ -100,6 +100,33 @@ namespace MediaTek86.controller
         public void DelPersonnel(Personnel personnel)
         {
             personnelAccess.DelPersonnel(personnel);
+        }
+
+        /// <summary>
+        /// Demande d'ajout d'une absence
+        /// </summary>
+        /// <param name="absence">objet absence à ajouter</param>
+        public void AddAbsence(Absences absence)
+        {
+            absenceAccess.AddAbsence(absence);
+        }
+
+        /// <summary>
+        /// Demande de modification d'une absence
+        /// </summary>
+        /// <param name="absence">objet absence à modifier</param>
+        public void UpdateAbsence(Absences absence, DateTime ancienneDateDebut)
+        {
+            absenceAccess.UpdateAbsence(absence, ancienneDateDebut);
+        }
+
+        /// <summary>
+        /// Demande de suppression d'une absence d'un personnel
+        /// </summary>
+        /// <param name="absence"></param>
+        public void DelAbsence(Absences absence)
+        {
+            absenceAccess.DelAbsence(absence);
         }
     }
 }
