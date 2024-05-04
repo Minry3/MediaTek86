@@ -226,10 +226,17 @@ namespace MediaTek86
             {
                 Personnel personnel = (Personnel)bdgPersonnels.List[bdgPersonnels.Position];
                 lblNomPersonnel.Text = (string)personnel.Nom + " " + (string)personnel.Prenom;
+                dgvAbsences.Focus();
             }
             else
             {
                 lblNomPersonnel.Text = "";
+                dgvAbsences.DataSource = null;
+                if (dgvLesPersonnels.Rows.Count > 0)
+                {
+                    dgvLesPersonnels.FirstDisplayedScrollingRowIndex = 0;
+                    dgvLesPersonnels.Rows[0].Selected = true;
+                }
             }
         }
 
@@ -362,7 +369,6 @@ namespace MediaTek86
         private void btnRetour_Click(object sender, EventArgs e)
         {
             EnCoursGestionAbsence(false);
-            dgvAbsences.DataSource = null;
         }
 
         /// <summary>
