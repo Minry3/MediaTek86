@@ -128,5 +128,16 @@ namespace MediaTek86.controller
         {
             absenceAccess.DelAbsence(absence);
         }
+
+        /// <summary>
+        /// Contrôle si l'absence existe déjà à la date sélectionnée
+        /// </summary>
+        /// <param name="absence">objet absence a contrôler</param>
+        /// <returns></returns>
+        public Boolean ControleAbsence(Absences absence)
+        {
+            return absenceAccess.ControleAbsence(absence);
+        }
     }
 }
+

@@ -140,6 +140,36 @@ namespace MediaTek86.dal
                 }
             }
         }
-    }
 
+        /// <summary>
+        /// Contrôle si l'absence existe déjà à la date sélectionnée
+        /// </summary>
+        /// <param name="absence">objet absence a contrôler</param>
+        /// <returns></returns>
+        public Boolean ControleAbsence(Absences absence)
+        {
+            if (access.Manager != null)
+            {
+                string req = "select * from absence a ";
+                req += "where a.idpersonnel=@idpersonnel and a.datedebut=@datedebut;";
+                Dictionary<string, object> parameters = new Dictionary<string, object>();
+                parameters.Add("@idpersonnel", absence.Personnel.Idpersonnel);
+                parameters.Add("@datedebut", absence.DateDebut);
+                try
+                {
+                    List<Object[]> records = access.Manager.ReqSelect(req, parameters);
+                    if (records != null)
+                    {
+                        return (records.Count > 0);
+                    }
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.Message);
+                    Environment.Exit(0);
+                }
+            }
+            return false;
+        }
+    }
 }

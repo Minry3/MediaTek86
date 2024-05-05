@@ -331,33 +331,61 @@ namespace MediaTek86
         /// <param name="e"></param>
         private void btnEnregistrerAbsence_Click(object sender, EventArgs e)
         {
+            Absences absence = (Absences)bdgAbsences.List[bdgAbsences.Position];
+
             if (dateDebut.Value < dateFin.Value && comboService.SelectedIndex != -1)
             {
-                Personnel personnel = (Personnel)bdgPersonnels.List[bdgPersonnels.Position];
                 Motif motif = (Motif)bdgMotifs.List[bdgMotifs.Position];
+
                 if (modifAbsence)
                 {
-                    Absences absence = (Absences)bdgAbsences.List[bdgAbsences.Position];
                     if (MessageBox.Show("Voulez-vous vraiment modifier l'absence de " + lblNomPersonnel.Text + " ?", "Confirmation de modification", MessageBoxButtons.YesNo) == DialogResult.Yes)
                     {
                         DateTime ancienneDateDebut = absence.DateDebut;
                         absence.DateDebut = dateDebut.Value;
                         absence.DateFin = dateFin.Value;
                         absence.Motif = motif;
-                        controller.UpdateAbsence(absence, ancienneDateDebut);
+                        if (ancienneDateDebut == dateDebut.Value)
+                        {
+                            controller.UpdateAbsence(absence, ancienneDateDebut);
+                        }
+                        else
+                        {
+                            if (controller.ControleAbsence(absence))
+                            {
+                                MessageBox.Show("Une absence est déjà programmée dans ce créneau.", "Alerte");
+                            }
+                            else
+                            {
+                                controller.UpdateAbsence(absence, ancienneDateDebut);
+                            }
+                        }
+
                     }
                 }
                 else
                 {
-                    Absences absence = new Absences(personnel, dateDebut.Value, dateFin.Value, motif);
-                    controller.AddAbsence(absence);
+                    if (!controller.ControleAbsence(absence))
+                    {
+                        controller.AddAbsence(absence);
+                    }
                 }
                 RemplirListeAbsences();
                 EnCoursModifAbsence(false);
             }
             else
             {
-                MessageBox.Show("La date de début doit être antérieure à la date de fin.", "Information");
+                if (dateDebut.Value > dateFin.Value)
+                {
+                    MessageBox.Show("La date de début doit être antérieure à la date de fin.", "Information");
+                }
+                else
+                {
+                    if (controller.ControleAbsence(absence))
+                    {
+                        MessageBox.Show("Une absence est déjà programmée dans ce créneau.", "Information");
+                    }
+                }
             }
         }
 
