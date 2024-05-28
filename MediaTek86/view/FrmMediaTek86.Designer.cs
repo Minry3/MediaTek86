@@ -48,6 +48,7 @@ namespace MediaTek86
             this.lblPrenom = new System.Windows.Forms.Label();
             this.lblNom = new System.Windows.Forms.Label();
             this.grpBoxAbsences = new System.Windows.Forms.GroupBox();
+            this.btnRetour = new System.Windows.Forms.Button();
             this.lblNomPersonnel = new System.Windows.Forms.Label();
             this.comboMotif = new System.Windows.Forms.ComboBox();
             this.dateFin = new System.Windows.Forms.DateTimePicker();
@@ -61,7 +62,6 @@ namespace MediaTek86
             this.btnSupprimerAbsence = new System.Windows.Forms.Button();
             this.btnEnregistrerAbsence = new System.Windows.Forms.Button();
             this.btnAnnulerAbsence = new System.Windows.Forms.Button();
-            this.btnRetour = new System.Windows.Forms.Button();
             this.grpBoxLesPersonnels.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLesPersonnels)).BeginInit();
             this.grpBoxAjoutPersonnel.SuspendLayout();
@@ -271,6 +271,16 @@ namespace MediaTek86
             this.grpBoxAbsences.TabStop = false;
             this.grpBoxAbsences.Text = "Absences";
             // 
+            // btnRetour
+            // 
+            this.btnRetour.Location = new System.Drawing.Point(6, 213);
+            this.btnRetour.Name = "btnRetour";
+            this.btnRetour.Size = new System.Drawing.Size(73, 23);
+            this.btnRetour.TabIndex = 21;
+            this.btnRetour.Text = "Retour";
+            this.btnRetour.UseVisualStyleBackColor = true;
+            this.btnRetour.Click += new System.EventHandler(this.btnRetour_Click);
+            // 
             // lblNomPersonnel
             // 
             this.lblNomPersonnel.AutoSize = true;
@@ -291,19 +301,24 @@ namespace MediaTek86
             // 
             // dateFin
             // 
+            this.dateFin.CustomFormat = "dd/MM/yyyy HH:mm";
+            this.dateFin.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateFin.Location = new System.Drawing.Point(373, 98);
             this.dateFin.Name = "dateFin";
             this.dateFin.Size = new System.Drawing.Size(135, 20);
             this.dateFin.TabIndex = 19;
-            this.dateFin.Value = new System.DateTime(2024, 5, 4, 14, 16, 0, 0);
+            this.dateFin.Value = new System.DateTime(2024, 5, 28, 0, 0, 0, 0);
             this.dateFin.ValueChanged += new System.EventHandler(this.dateFin_ValueChanged);
             // 
             // dateDebut
             // 
+            this.dateDebut.CustomFormat = "dd/MM/yyyy HH:mm";
+            this.dateDebut.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateDebut.Location = new System.Drawing.Point(373, 66);
             this.dateDebut.Name = "dateDebut";
             this.dateDebut.Size = new System.Drawing.Size(135, 20);
             this.dateDebut.TabIndex = 18;
+            this.dateDebut.Value = new System.DateTime(2024, 5, 28, 1, 26, 21, 0);
             this.dateDebut.ValueChanged += new System.EventHandler(this.dateDebut_ValueChanged);
             // 
             // lblMotif
@@ -395,16 +410,6 @@ namespace MediaTek86
             this.btnAnnulerAbsence.Text = "Annuler";
             this.btnAnnulerAbsence.UseVisualStyleBackColor = true;
             this.btnAnnulerAbsence.Click += new System.EventHandler(this.btnAnnulerAbsence_Click);
-            // 
-            // btnRetour
-            // 
-            this.btnRetour.Location = new System.Drawing.Point(6, 213);
-            this.btnRetour.Name = "btnRetour";
-            this.btnRetour.Size = new System.Drawing.Size(73, 23);
-            this.btnRetour.TabIndex = 21;
-            this.btnRetour.Text = "Retour";
-            this.btnRetour.UseVisualStyleBackColor = true;
-            this.btnRetour.Click += new System.EventHandler(this.btnRetour_Click);
             // 
             // FrmMediaTek86
             // 

@@ -70,7 +70,7 @@ namespace MediaTek86.controller
         /// </summary>
         /// <param name="idpersonnel"></param>
         /// <returns>liste des absences d'un personnel</returns>
-        public List<Absences> GetlesAbsences(int idpersonnel)
+        public List<Absences> GetLesAbsences(int idpersonnel)
         {
             return absenceAccess.GetLesAbsences(idpersonnel);
         }
@@ -129,14 +129,9 @@ namespace MediaTek86.controller
             absenceAccess.DelAbsence(absence);
         }
 
-        /// <summary>
-        /// Contrôle si l'absence existe déjà à la date sélectionnée
-        /// </summary>
-        /// <param name="absence">objet absence a contrôler</param>
-        /// <returns></returns>
-        public Boolean ControleAbsence(Absences absence)
+        public bool ControleAbsence(Absences absence, DateTime newDateDebut, DateTime newDateFin, Boolean modifAbsence)
         {
-            return absenceAccess.ControleAbsence(absence);
+            return absenceAccess.ControleAbsence(absence, newDateDebut, newDateFin, modifAbsence);
         }
     }
 }

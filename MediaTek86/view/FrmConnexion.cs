@@ -51,8 +51,11 @@ namespace MediaTek86.view
                 Responsable responsable = new Responsable(login, pwd);
                 if (controller.ControleConnexion(responsable))
                 {
+                    txtMdp.Text = "";
+                    this.Hide();
                     FrmMediaTek86 frm = new FrmMediaTek86();
                     frm.ShowDialog();
+                    this.Show();
                 }
                 else
                 {

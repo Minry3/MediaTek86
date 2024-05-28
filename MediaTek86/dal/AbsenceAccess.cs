@@ -41,7 +41,7 @@ namespace MediaTek86.dal
                 try
                 {
                     List<Object[]> records = access.Manager.ReqSelect(req);
-                    if(records != null)
+                    if (records != null)
                     {
                         foreach (Object[] record in records)
                         {
@@ -60,33 +60,6 @@ namespace MediaTek86.dal
                 }
             }
             return lesAbsences;
-        }
-
-        /// <summary>
-        /// Demande d'ajout d'une absence
-        /// </summary>
-        /// <param name="absence">objet absence à ajouter</param>
-        public void AddAbsence(Absences absence)
-        {
-            if (access.Manager != null)
-            {
-                string req = "insert into absence(idpersonnel, datedebut, datefin, idservice) ";
-                req += "values (@idpersonnel, @datedebut, @datefin, @idmotif);";
-                Dictionary<string, object> parameters = new Dictionary<string, object>();
-                parameters.Add("@idpersonnel", absence.Personnel.Idpersonnel);
-                parameters.Add("@datedebut", absence.DateDebut);
-                parameters.Add("@datefin", absence.DateFin);
-                parameters.Add("@idmotif", absence.Motif.Idmotif);;
-                try
-                {
-                    access.Manager.ReqUpdate(req, parameters);
-                }
-                catch (Exception e)
-                {
-                    Console.WriteLine(e.Message);
-                    Environment.Exit(0);
-                }
-            }
         }
 
         /// <summary>
@@ -114,21 +87,20 @@ namespace MediaTek86.dal
         }
 
         /// <summary>
-        /// Demande de modification d'une absence
+        /// Demande d'ajout d'une absence
         /// </summary>
-        /// <param name="absence">objet absence à modifier</param>
-        public void UpdateAbsence(Absences absence, DateTime ancienneDateDebut)
+        /// <param name="absence">objet absence à ajouter</param>
+        public void AddAbsence(Absences absence)
         {
             if (access.Manager != null)
             {
-                string req = "update absence set idpersonnel = @idpersonnel, datedebut = @datedebut, datefin = @datefin, idmotif = @idmotif ";
-                req += "where idpersonnel = @idpersonnel and datedebut = @ancienneDateDebut;";
+                string req = "insert into absence(idpersonnel, datedebut, datefin, idmotif) ";
+                req += "values (@idpersonnel, @datedebut, @datefin, @idmotif);";
                 Dictionary<string, object> parameters = new Dictionary<string, object>();
                 parameters.Add("@idpersonnel", absence.Personnel.Idpersonnel);
                 parameters.Add("@datedebut", absence.DateDebut);
                 parameters.Add("@datefin", absence.DateFin);
                 parameters.Add("@idmotif", absence.Motif.Idmotif);
-                parameters.Add("@ancienneDateDebut", ancienneDateDebut);
                 try
                 {
                     access.Manager.ReqUpdate(req, parameters);
@@ -142,31 +114,53 @@ namespace MediaTek86.dal
         }
 
         /// <summary>
-        /// Contrôle si l'absence existe déjà à la date sélectionnée
+        /// Demande de modification d'une absence
         /// </summary>
-        /// <param name="absence">objet absence a contrôler</param>
-        /// <returns></returns>
-        public Boolean ControleAbsence(Absences absence)
+        /// <param name="absence">objet absence à modifier</param>
+        public void UpdateAbsence(Absences absence, DateTime ancienneDateDebut)
         {
             if (access.Manager != null)
             {
-                string req = "select * from absence a ";
-                req += "where a.idpersonnel=@idpersonnel and a.datedebut=@datedebut;";
+                string req = "update absence set idpersonnel = @idpersonnel, datedebut = @datedebut, datefin = @datefin, idmotif = @idmotif ";
+                req += "where idpersonnel = @idpersonnel and datedebut = @anciennedatedebut;";
                 Dictionary<string, object> parameters = new Dictionary<string, object>();
                 parameters.Add("@idpersonnel", absence.Personnel.Idpersonnel);
                 parameters.Add("@datedebut", absence.DateDebut);
+                parameters.Add("@datefin", absence.DateFin);
+                parameters.Add("@idmotif", absence.Motif.Idmotif);
+                parameters.Add("@anciennedatedebut", ancienneDateDebut);
                 try
                 {
-                    List<Object[]> records = access.Manager.ReqSelect(req, parameters);
-                    if (records != null)
-                    {
-                        return (records.Count > 0);
-                    }
+                    access.Manager.ReqUpdate(req, parameters);
                 }
                 catch (Exception e)
                 {
                     Console.WriteLine(e.Message);
                     Environment.Exit(0);
+                }
+            }
+        }
+
+        /// <summary>
+        /// Controle si une absence est déjà programmée à cette période
+        /// </summary>
+        /// <param name="absence">objet absence à controler</param>
+        /// <param name="newDateDebut">nouvelle date de début</param>
+        /// <param name="newDateFin">nouvelle date de fin</param>
+        /// <param name="modifAbsence">statut de la gestion des absences</param>
+        /// <returns></returns>
+        public bool ControleAbsence(Absences absence, DateTime newDateDebut, DateTime newDateFin, Boolean modifAbsence)
+        {
+            List<Absences> lesAbsences = GetLesAbsences(absence.Personnel.Idpersonnel);
+
+            foreach (Absences uneAbsence in lesAbsences)
+            {
+                if (uneAbsence != absence && (
+                    (newDateDebut >= uneAbsence.DateDebut && newDateDebut <= uneAbsence.DateFin) ||
+                    (newDateFin >= uneAbsence.DateDebut && newDateFin <= uneAbsence.DateFin) ||
+                    (newDateDebut <= uneAbsence.DateDebut && newDateFin >= uneAbsence.DateFin)))
+                {
+                    return true;
                 }
             }
             return false;
