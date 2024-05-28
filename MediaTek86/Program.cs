@@ -7,6 +7,9 @@ using System.Windows.Forms;
 
 namespace MediaTek86
 {
+    /// <summary>
+    /// Classe liée au programme de l'application
+    /// </summary>
     static class Program
     {
         /// <summary>

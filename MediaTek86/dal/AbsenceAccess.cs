@@ -117,6 +117,7 @@ namespace MediaTek86.dal
         /// Demande de modification d'une absence
         /// </summary>
         /// <param name="absence">objet absence à modifier</param>
+        /// <param name="ancienneDateDebut">permet de retrouver l'absence</param>
         public void UpdateAbsence(Absences absence, DateTime ancienneDateDebut)
         {
             if (access.Manager != null)
@@ -148,7 +149,8 @@ namespace MediaTek86.dal
         /// <param name="newDateDebut">nouvelle date de début</param>
         /// <param name="newDateFin">nouvelle date de fin</param>
         /// <param name="modifAbsence">statut de la gestion des absences</param>
-        /// <returns></returns>
+        /// <returns>true si une absence est déjà programmée</returns>
+        /// <returns>false si une absence n'est pas encore programmée</returns>
         public bool ControleAbsence(Absences absence, DateTime newDateDebut, DateTime newDateFin, Boolean modifAbsence)
         {
             List<Absences> lesAbsences = GetLesAbsences(absence.Personnel.Idpersonnel);

@@ -11,11 +11,29 @@ namespace MediaTek86.model
     /// </summary>
     public class Personnel
     {
+        /// <summary>
+        /// getter sur Idpersonnel
+        /// </summary>
         public int Idpersonnel { get; }
+        /// <summary>
+        /// getter et setter sur Nom
+        /// </summary>
         public string Nom { get; set; }
+        /// <summary>
+        /// getter et setter sur Prenom
+        /// </summary>
         public string Prenom { get; set; }
+        /// <summary>
+        /// getter et setter sur Tel
+        /// </summary>
         public string Tel { get; set; }
+        /// <summary>
+        /// getter et setter sur Mail
+        /// </summary>
         public string Mail { get; set; }
+        /// <summary>
+        /// getter et setter sur Service
+        /// </summary>
         public Service Service { get; set; }
 
         /// <summary>

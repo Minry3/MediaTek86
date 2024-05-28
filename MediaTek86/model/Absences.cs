@@ -11,9 +11,21 @@ namespace MediaTek86.model
     /// </summary>
     public class Absences
     {
+        /// <summary>
+        /// getter sur Personnel
+        /// </summary>
         public Personnel Personnel { get; }
+        /// <summary>
+        /// getter et setter sur DateDebut
+        /// </summary>
         public DateTime DateDebut { get; set; }
+        /// <summary>
+        /// getter et setter sur DateFin
+        /// </summary>
         public DateTime DateFin { get; set; }
+        /// <summary>
+        /// getter et setter sur Motif
+        /// </summary>
         public Motif Motif { get; set; }
 
         /// <summary>

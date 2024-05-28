@@ -4,6 +4,9 @@ using System.Windows.Forms;
 using MediaTek86.controller;
 using MediaTek86.model;
 
+/// <summary>
+/// Contient les classes et les fonctionnalités principales de l'application MediaTek86.
+/// </summary>
 namespace MediaTek86
 {
     /// <summary>
